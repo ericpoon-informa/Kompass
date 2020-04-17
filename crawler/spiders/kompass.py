@@ -1,23 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
-import scraperwiki
 from urllib.parse import urlparse
-
-class KompassItem(scrapy.Item):
-    category = scrapy.Field()
-    subCategory = scrapy.Field()
-    name = scrapy.Field()
-    country = scrapy.Field()
-    kompassId = scrapy.Field()
-    distributor = scrapy.Field()
-    supplier = scrapy.Field()
-    service = scrapy.Field()
-    activities = scrapy.Field()
-    website = scrapy.Field()
-    description = scrapy.Field()
-    importCountries = scrapy.Field()
-    exportCountries = scrapy.Field()
-    products = scrapy.Field()
+from crawler.items import KompassItem
 
 class KompassSpider(scrapy.Spider):
     name = 'kompass'
@@ -112,5 +96,18 @@ class KompassSpider(scrapy.Spider):
         importCountries = response.xpath('//div[@id="importCountries"]/text()').get()
         exportCountries = response.xpath('//div[@id="exportCountries"]/text()').get()
         name = name.replace('\r\n'," ").strip()
-        scraperwiki.sqlite.save(unique_keys=['kompassId'], data={"kompassId" : kompassId,"name" : name,"category" : category,"subCategory" : subCategory,"country" : country,"distributor" : distributor,"supplier" : supplier,"service" : service,"activities" : activities,"website" : websites,"description" : description,"importCountries" : importCountries,"exportCountries" : exportCountries})
+        item = KompassItem()
+        item['category'] = category
+        item['subCategory'] = subCategory
+        item['name'] = name
+        item['country'] = country
+        item['kompassId'] = kompassId
+        item['distributor'] = distributor
+        item['supplier'] = supplier
+        item['service'] = service
+        item['activities'] = activities
+        item['website'] = websites
+        item['description'] = description
+        item['importCountries'] = importCountries
+        item['exportCountries'] = exportCountries
         yield item

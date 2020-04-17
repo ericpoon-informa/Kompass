@@ -7,8 +7,18 @@
 
 import scrapy
 
-
-class CrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class KompassItem(scrapy.Item):
+    category = scrapy.Field()
+    subCategory = scrapy.Field()
+    name = scrapy.Field()
+    country = scrapy.Field()
+    kompassId = scrapy.Field()
+    distributor = scrapy.Field()
+    supplier = scrapy.Field()
+    service = scrapy.Field()
+    activities = scrapy.Field()
+    website = scrapy.Field()
+    description = scrapy.Field()
+    importCountries = scrapy.Field()
+    exportCountries = scrapy.Field()
+    products = scrapy.Field()

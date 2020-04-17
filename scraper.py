@@ -26,6 +26,8 @@ import scrapy
 from scrapy.crawler import CrawlerProcess
 from crawler.spiders.kompass import KompassSpider
 
+os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
+
 process = CrawlerProcess()
 process.crawl(KompassSpider)
 process.start()
