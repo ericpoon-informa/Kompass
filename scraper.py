@@ -30,6 +30,9 @@ from scrapy.utils.project import get_project_settings
 
 os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
 
-process = CrawlerProcess(get_project_settings())
+setting = get_project_settings()
+print(setting)
+process = CrawlerProcess(setting)
+process.configure()
 process.crawl(KompassSpider)
 process.start()
