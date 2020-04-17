@@ -31,7 +31,7 @@ from scrapy.utils.project import get_project_settings
 os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
 
 setting = get_project_settings()
-print(setting)
+print(setting['USER_AGENT_LIST'])
 process = CrawlerProcess(setting)
 #process.crawl(KompassSpider)
 #process.start()
