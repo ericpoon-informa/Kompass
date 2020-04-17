@@ -33,6 +33,5 @@ os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
 setting = get_project_settings()
 print(setting)
 process = CrawlerProcess(setting)
-process.configure()
-process.crawl(KompassSpider)
-process.start()
+#process.crawl(KompassSpider)
+#process.start()
