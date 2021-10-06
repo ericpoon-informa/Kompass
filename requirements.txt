@@ -3,4 +3,4 @@
 # Find out more: https://morph.io/documentation/python
 
 -e git+https://github.com/sensiblecodeio/scraperwiki-python.git@update-supported-pythons#egg=scraperwiki
-scrapy==2.0.1
+scrapy==2.5.1
